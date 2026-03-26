@@ -41,7 +41,7 @@
         color: var(--vogue-black);
       }
 
-      /* ANIMASI BACKGROUND STRIPE (HIDUP & BERGERAK) */
+      /* ANIMASI BACKGROUND STRIPE */
       body::before {
         content: "";
         position: fixed;
@@ -62,7 +62,7 @@
         100% { transform: translate(-5%, -5%) rotate(3deg); }
       }
 
-      /* VOGUE ENTRY ANIMATION (NYAWA PERTAMA) */
+      /* VOGUE ENTRY ANIMATION */
       #root {
         opacity: 0;
         filter: blur(15px);
@@ -78,7 +78,6 @@
         }
       }
 
-      /* HUAWEI MINIMALIST SCROLLBAR */
       ::-webkit-scrollbar { width: 3px; }
       ::-webkit-scrollbar-thumb {
         background: rgba(0,0,0,0.1);
@@ -89,14 +88,14 @@
   <body>
     <div id="root"></div>
 
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="src/main.jsx"></script>
 
     <script>
-      // Mencegah klik kanan agar terasa seperti aplikasi native Apple
       document.addEventListener('contextmenu', event => event.preventDefault());
 
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
+          // Tetap gunakan catch kosong agar tidak crash jika sw.js belum ada
           navigator.serviceWorker.register('/sw.js').catch(() => {});
         });
       }
