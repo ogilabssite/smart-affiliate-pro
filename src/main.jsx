@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
-
-// Import gaya "Bernyawa" (DNA Desain Apple, Huawei, Vogue, Stripe)
 import './assets/styles.css';
 
 /**
