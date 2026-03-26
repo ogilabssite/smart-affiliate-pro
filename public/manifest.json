@@ -20,5 +20,5 @@
   "theme_color": "#000000",
   "background_color": "#F5F5F7",
   "orientation": "portrait",
-  "scope": "./"
+  "scope": "/"
 }
