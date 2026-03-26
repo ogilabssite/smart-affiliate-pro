@@ -1,0 +1,113 @@
+/* Import Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --apple-bg: #F5F5F7;
+    --vogue-black: #000000;
+    --stripe-blue: #635BFF;
+    --huawei-gray: #86868B;
+  }
+
+  body {
+    /* Background Apple-Style: Light & Airy */
+    @apply bg-[#F5F5F7] text-black antialiased overflow-x-hidden;
+    /* Font Selection: Apple-Huawei Cleanliness */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Vogue Typography Hook */
+  h1, h2, .font-display {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.05em;
+  }
+}
+
+@layer components {
+  /* 1. Category Bar: Hidden Scroll with Huawei Fluidity */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 2. Apple Glassmorphism Effect */
+  .glass-header {
+    @apply bg-white/70 backdrop-blur-2xl border-b border-white/20 sticky top-0 z-[40];
+  }
+
+  /* 3. Stripe-Style Smooth Inputs */
+  .stripe-input {
+    @apply transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* 4. Animation Bernyawa (Fluid Keyframes) */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes shimmer-fast {
+    0% { transform: translateX(-150%) skewX(-20deg); }
+    100% { transform: translateX(150%) skewX(-20deg); }
+  }
+
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+
+  .shimmer-sweep {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer-sweep::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shimmer-fast 3s infinite;
+  }
+}
+
+@layer utilities {
+  /* Custom Cubic Bezier for "Apple-like" Feel */
+  .cubic-bezier {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Soft Shadows like Stripe */
+  .shadow-premium {
+    box-shadow: 0 2px 5px -1px rgba(50, 50, 93, 0.1), 
+                0 1px 3px -1px rgba(0, 0, 0, 0.05);
+  }
+
+  .shadow-floating {
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.15), 
+                0 8px 16px -8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* 5. Mobile Native Safe Area Support */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Typography Vogue High-Contrast */
+.text-vogue {
+  @apply tracking-tighter uppercase font-black italic;
+}
+
+/* Smooth Image Loading */
+img {
+  @apply transition-opacity duration-700;
+  content-visibility: auto;
+}
