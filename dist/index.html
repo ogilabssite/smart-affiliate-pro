@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    
+    <title>SmartCart — Boutique Affiliate Selection</title>
+    <meta name="description" content="Koleksi barang unik pilihan dengan estetika premium." />
+
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#F5F5F7" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="SmartCart" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Plus+Jakarta+Sans:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+
+    <style>
+      :root {
+        --system-bg: #F5F5F7; 
+        --vogue-black: #000000;
+        --stripe-blue: #635BFF; 
+        --glass: rgba(255, 255, 255, 0.7);
+      }
+
+      * {
+        -webkit-tap-highlight-color: transparent;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, system-ui, sans-serif;
+        background-color: var(--system-bg);
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        overscroll-behavior-y: none;
+        color: var(--vogue-black);
+      }
+
+      /* ANIMASI BACKGROUND STRIPE (HIDUP & BERGERAK) */
+      body::before {
+        content: "";
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: 
+          radial-gradient(circle at 10% 20%, rgba(99, 91, 255, 0.04) 0%, transparent 40%),
+          radial-gradient(circle at 90% 80%, rgba(99, 91, 255, 0.06) 0%, transparent 40%),
+          radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 1) 0%, transparent 60%);
+        z-index: -1;
+        animation: stripeFlow 25s ease-in-out infinite alternate;
+      }
+
+      @keyframes stripeFlow {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        100% { transform: translate(-5%, -5%) rotate(3deg); }
+      }
+
+      /* VOGUE ENTRY ANIMATION (NYAWA PERTAMA) */
+      #root {
+        opacity: 0;
+        filter: blur(15px);
+        transform: scale(1.02);
+        animation: vogueEntry 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+      }
+
+      @keyframes vogueEntry {
+        to {
+          opacity: 1;
+          filter: blur(0);
+          transform: scale(1);
+        }
+      }
+
+      /* HUAWEI MINIMALIST SCROLLBAR */
+      ::-webkit-scrollbar { width: 3px; }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(0,0,0,0.1);
+        border-radius: 20px;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-3e18b6ee.js"></script>
+    <link rel="stylesheet" href="/assets/index-5c3d802f.css">
+  </head>
+  <body>
+    <div id="root"></div>
+
+    
+
+    <script>
+      // Mencegah klik kanan agar terasa seperti aplikasi native Apple
+      document.addEventListener('contextmenu', event => event.preventDefault());
+
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
