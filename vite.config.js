@@ -3,12 +3,12 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // <--- UBAH JADI INI (Titik Slash)
+  base: './', 
   server: {
     port: 3000,
   },
   build: {
     outDir: 'dist',
-    emptyOutDir: true, 
+    emptyOutDir: true,
   }
 })
